@@ -1,0 +1,8 @@
+fastapi[standard]>=0.115.0
+uvicorn
+sqlalchemy
+pydantic
+pytest
+Httpx
+mailvalidator
+flask-cors
