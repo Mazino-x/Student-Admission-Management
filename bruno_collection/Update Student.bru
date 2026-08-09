@@ -1,0 +1,31 @@
+meta {
+  name: Update Student
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://127.0.0.1:8000/students/1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Kunal Pathak",
+    "email": "kunal@example.com",
+    "phone": "9876543210",
+    "course": "B.tech",
+    "year": 4
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.name: eq Kunal Pathak
+  res.body.year: eq 4
+}

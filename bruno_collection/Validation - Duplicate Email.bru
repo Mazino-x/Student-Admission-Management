@@ -1,0 +1,30 @@
+meta {
+  name: Validation - Duplicate Email
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://127.0.0.1:8000/students
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Student Two",
+    "email": "kunal@example.com",
+    "phone": "9123456780",
+    "course": "B.tech",
+    "year": 4
+  }
+}
+
+assert {
+  res.status: eq 400
+  res.body.detail: eq Email already exists
+}

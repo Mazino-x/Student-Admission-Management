@@ -1,0 +1,17 @@
+meta {
+  name: Statistics
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://127.0.0.1:8000/students/statistics
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.total_students: isDefined
+  res.body.year_distribution: isDefined
+}

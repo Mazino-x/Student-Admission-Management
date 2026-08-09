@@ -1,0 +1,17 @@
+meta {
+  name: Get Student by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://127.0.0.1:8000/students/1
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.id: eq 1
+  res.body.name: eq Kunal
+}

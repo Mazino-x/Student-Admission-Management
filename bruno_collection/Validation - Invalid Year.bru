@@ -1,0 +1,29 @@
+meta {
+  name: Validation - Invalid Year
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://127.0.0.1:8000/students
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Test Student",
+    "email": "test2@example.com",
+    "phone": "9876543210",
+    "course": "BCA",
+    "year": 5
+  }
+}
+
+assert {
+  res.status: eq 422
+}
