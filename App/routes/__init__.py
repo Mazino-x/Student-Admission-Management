@@ -1,0 +1,1 @@
+""" Student routes for the API """
