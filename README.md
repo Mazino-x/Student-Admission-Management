@@ -84,7 +84,7 @@ Create Student
 ![Validation Email](testing-images/image-6.png)
 
 
-##Getting statistics
+**Getting statistics
 ![Get Statistics](testing-images/image-7.png)
 
 
