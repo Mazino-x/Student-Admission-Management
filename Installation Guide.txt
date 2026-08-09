@@ -1,0 +1,17 @@
+Download and Install sqlite and bruno collection
+https://sqlitebrowser.org/dl/
+https://www.usebruno.com/
+Create virtual environment by -
+Python -m venv .venv
+.venv is the name of the virtual environment
+Activate virtual environment: .venv/Scripts/activate
+Now install the required libraries in virutal environment by-
+pip install -r requirements.txt
+
+Run the fastapi uvicorn server by -
+python -m uvicorn app.main:app --reload
+
+Test in another terminal by - 
+pytest -v --cov=app --cov-report=term-missing
+
+Use Bruno collection to test individually. Bruno collection folder is in the repository

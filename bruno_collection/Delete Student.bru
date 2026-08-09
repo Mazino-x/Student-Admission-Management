@@ -5,9 +5,13 @@ meta {
 }
 
 delete {
-  url: http://127.0.0.1:8000/students/1
+  url: http://127.0.0.1:8000/students/1?kunal=
   body: none
   auth: none
+}
+
+params:query {
+  kunal: 
 }
 
 assert {
