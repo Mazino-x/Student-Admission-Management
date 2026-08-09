@@ -51,40 +51,40 @@ App/routes/students.py - Contains all student-related REST API endpoints and dat
 
 Tests/ - Contains automated tests for the API's health check, CRUD operations, validation, filtering, duplicate emails, and statistics.
 
-###PYTEST-
+##PYTEST-
 ![PYTEST](testing-images/image-8.png)
 
 
-###Testing- (BRUNO COLLECTION)
+##Testing- (BRUNO COLLECTION)
 Create Student
 ![Create Student](testing-images/image.png)
 
 
-###Get Students
+##Get Students
 ![Get Students](testing-images/image-1.png)
 
 
-###Get Students by ID
+##Get Students by ID
 ![Get Students by ID](testing-images/image-2.png)
 
 
-###Update Student
+##Update Student
 ![Update student](testing-images/image-3.png)
 
 
-###Delete Student
+##Delete Student
 ![Delete student](testing-images/image-4.png)
 
 
-###Validation of phone number
+##Validation of phone number
 ![Validation Phone](testing-images/image-5.png)
 
 
-###Validation of duplicate Email
+##Validation of duplicate Email
 ![Validation Email](testing-images/image-6.png)
 
 
-###Getting statistics
+##Getting statistics
 ![Get Statistics](testing-images/image-7.png)
 
 
