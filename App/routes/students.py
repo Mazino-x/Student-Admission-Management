@@ -11,7 +11,7 @@ from app.schemas import (
 )
 
 router = APIRouter(prefix="/students", tags=["Students"])
-router.post("", response_model=StudentResponse, status_code=status.HTTP_201_CREATED, summary="Student Registration",)
+@router.post("", response_model=StudentResponse, status_code=status.HTTP_201_CREATED, summary="Student Registration",)
 def create_student(student_in: StudentCreate, db: Session = Depends(get_db)):
     # Case-insensitive email uniqueness check
     existing_student = (
@@ -40,7 +40,7 @@ def create_student(student_in: StudentCreate, db: Session = Depends(get_db)):
     db.refresh(db_student)
     return db_student
 
-router.get("", response_model=list[StudentResponse], status_code=status.HTTP_200_OK, summary="Fetch all Students",)
+@router.get("", response_model=list[StudentResponse], status_code=status.HTTP_200_OK, summary="Fetch all Students",)
 def list_students(
     year: int | None = Query(None, ge=1, le=4, description="Filter by academic year"),
     department: str | None = Query(None, description="Filter by department / course"),
@@ -63,7 +63,7 @@ def list_students(
     students = query.offset(skip).limit(limit).all()
     return students
 
-router.get("/statistics", response_model=StudentStatistics, status_code=status.HTTP_200_OK, summary="Fetch Student Statistics",)
+@router.get("/statistics", response_model=StudentStatistics, status_code=status.HTTP_200_OK, summary="Fetch Student Statistics",)
 def get_student_statistics(db: Session = Depends(get_db)):
     total = db.query(Student).count()
 
@@ -89,7 +89,7 @@ def get_student_statistics(db: Session = Depends(get_db)):
         by_department=dept_counts,
     )
 
-router.get("/{student_id}", response_model=StudentResponse, status_code=status.HTTP_200_OK, summary="Fetch Student by ID",)
+@router.get("/{student_id}", response_model=StudentResponse, status_code=status.HTTP_200_OK, summary="Fetch Student by ID",)
 def get_student(student_id: int, db: Session = Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id).first()
     if not student:
@@ -99,7 +99,7 @@ def get_student(student_id: int, db: Session = Depends(get_db)):
         )
     return student 
 
-router.put("/{student_id}", response_model=StudentResponse, status_code=status.HTTP_200_OK, summary="Update Student by ID",)
+@router.put("/{student_id}", response_model=StudentResponse, status_code=status.HTTP_200_OK, summary="Update Student by ID",)
 def update_student(
     student_id: int,
     student_in: StudentUpdate,
@@ -148,7 +148,7 @@ def update_student(
     db.refresh(student)
     return student
 
-router.delete("/{student_id}", status_code=status.HTTP_204_NO_CONTENT, summary="Delete Student by ID",)
+@router.delete("/{student_id}", status_code=status.HTTP_200_OK, summary="Delete Student by ID",)
 def delete_student(student_id: int, db: Session = Depends(get_db)):
     student = db.query(Student).filter(Student.id == student_id).first()
     if not student:
